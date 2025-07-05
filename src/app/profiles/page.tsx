@@ -70,7 +70,7 @@ export default function Profiles() {
                     </div>
                   ) : (
                     <img
-                      src={profile.avatar}
+                      src={profile.avatar || ''}
                       alt={profile.name}
                       className="w-32 h-32 md:w-40 md:h-40 rounded-lg group-hover:ring-4 group-hover:ring-white transition"
                     />
