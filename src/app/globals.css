@@ -1,0 +1,233 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #141414;
+  color: white;
+  font-family: 'Netflix Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Netflix Font Loading */
+@font-face {
+  font-family: 'Netflix Sans';
+  src: url('https://assets.nflxext.com/ffe/siteui/fonts/netflix-sans/v3/NetflixSans_W_Rg.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Netflix Sans';
+  src: url('https://assets.nflxext.com/ffe/siteui/fonts/netflix-sans/v3/NetflixSans_W_Md.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Netflix Sans';
+  src: url('https://assets.nflxext.com/ffe/siteui/fonts/netflix-sans/v3/NetflixSans_W_Bd.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #141414;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Hide scrollbar for movie rows */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Netflix specific utilities */
+.min-text-11 {
+  font-size: max(11px, 1vw);
+}
+
+.min-text-14 {
+  font-size: max(14px, 1.4vw);
+}
+
+.min-text-16 {
+  font-size: max(16px, 1.6vw);
+}
+
+.min-text-20 {
+  font-size: max(20px, 2vw);
+}
+
+.min-text-32 {
+  font-size: max(32px, 3.2vw);
+}
+
+.min-px-6 {
+  padding-left: max(6px, 0.6vw);
+  padding-right: max(6px, 0.6vw);
+}
+
+.min-py-2 {
+  padding-top: max(2px, 0.2vw);
+  padding-bottom: max(2px, 0.2vw);
+}
+
+.min-px-24 {
+  padding-left: max(24px, 2.4vw);
+  padding-right: max(24px, 2.4vw);
+}
+
+.min-py-8 {
+  padding-top: max(8px, 0.8vw);
+  padding-bottom: max(8px, 0.8vw);
+}
+
+.min-h-20 {
+  min-height: max(20px, 2vw);
+}
+
+.min-h-42 {
+  min-height: max(42px, 4.2vw);
+}
+
+.min-w-42 {
+  min-width: max(42px, 4.2vw);
+}
+
+/* Input styles */
+.input {
+  @apply w-full rounded bg-[#333] py-5 px-6 text-white placeholder-[gray] outline-none focus:bg-[#454545];
+}
+
+/* Modal button styles */
+.modalButton {
+  @apply flex h-11 w-11 items-center justify-center rounded-full border-2 border-[gray] bg-[#2a2a2a]/60 transition hover:border-white hover:bg-white/10;
+}
+
+/* Smooth transitions for all interactive elements */
+button, a, [role="button"] {
+  transition: all 0.2s ease-in-out;
+}
+
+/* Focus styles for accessibility */
+button:focus-visible, a:focus-visible {
+  outline: 2px solid white;
+  outline-offset: 2px;
+}
+
+/* Video player slider styles */
+.slider {
+  background: linear-gradient(to right, #e50914 0%, #e50914 var(--progress, 0%), #666 var(--progress, 0%), #666 100%);
+}
+
+.slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #e50914;
+  cursor: pointer;
+  border: 2px solid #fff;
+}
+
+.slider::-moz-range-thumb {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #e50914;
+  cursor: pointer;
+  border: 2px solid #fff;
+}
+
+/* Loading animation */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+/* Navbar specific styles */
+.navbar-link {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.navbar-link:hover::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #e50914;
+  transform: scaleX(1);
+  transition: transform 0.3s ease;
+}
+
+.navbar-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #e50914;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+/* Mobile menu animation */
+.mobile-menu-enter {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+.mobile-menu-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+/* Dropdown animations */
+.dropdown-enter {
+  opacity: 0;
+  transform: translateY(-10px) scale(0.95);
+}
+
+.dropdown-enter-active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transition: opacity 200ms, transform 200ms;
+}
