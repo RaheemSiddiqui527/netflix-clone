@@ -6,6 +6,11 @@ import { WatchlistProvider } from '@/context/WatchlistContext'
 export const metadata: Metadata = {
   title: 'Netflix Clone',
   description: 'A Netflix clone built with Next.js and Tailwind CSS',
+  icons: {
+    icon: '/icon.svg',
+    shortcut: '/icon.svg',
+    apple: '/icon.svg',
+  },
 }
 
 export default function RootLayout({
