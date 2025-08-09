@@ -1,5 +1,4 @@
 'use client';
-
 import { useState } from 'react';
 import ProtectedRoute from '@/components/ProtectedRoute';
 import Navbar from '@/components/Navbar';
@@ -126,5 +125,5 @@ export default function Home() {
         />
       </div>
     </ProtectedRoute>
-  );
+      );
 }
